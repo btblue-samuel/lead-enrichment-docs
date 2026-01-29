@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route,
   NavLink,
