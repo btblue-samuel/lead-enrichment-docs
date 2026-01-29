@@ -467,10 +467,13 @@ function AppContent() {
   const location = useLocation();
   const mainRef = useRef(null);
 
-  // Scroll main content to top when route changes (but not for hash/anchor links)
   useEffect(() => {
     if (!location.hash && mainRef.current) {
-      mainRef.current.scrollTo(0, 0);
+      setTimeout(() => {
+        if (mainRef.current) {
+          mainRef.current.scrollTop = 0;
+        }
+      }, 0);
     }
   }, [location.pathname]);
 
