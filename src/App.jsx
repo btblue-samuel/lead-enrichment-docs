@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import {
   HashRouter as Router,
   Routes,
@@ -463,16 +463,25 @@ function NavItem({ page }) {
   );
 }
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+  const mainRef = useRef(null);
+
+  // Scroll main content to top when route changes (but not for hash/anchor links)
+  useEffect(() => {
+    if (!location.hash && mainRef.current) {
+      mainRef.current.scrollTo(0, 0);
+    }
+  }, [location.pathname]);
+
   return (
-    <Router>
-      <div className="app-container">
-        <aside className="sidebar">
-          <div className="sidebar-header">
-            <NavLink to="/" className="sidebar-header-link">
-              <span className="sidebar-logo">◆</span>
-              <span className="sidebar-title">Documentation</span>
-            </NavLink>
+    <div className="app-container">
+      <aside className="sidebar">
+        <div className="sidebar-header">
+          <NavLink to="/" className="sidebar-header-link">
+            <span className="sidebar-logo">◆</span>
+            <span className="sidebar-title">Documentation</span>
+          </NavLink>
           </div>
           <SearchBar />
           <nav className="sidebar-nav">
@@ -491,7 +500,7 @@ function App() {
             <span>v1.0.0</span>
           </div>
         </aside>
-        <main className="main-content">
+        <main className="main-content" ref={mainRef}>
           <Routes>
             {allPages.map((page) => (
               <Route
@@ -533,6 +542,13 @@ function App() {
           </Routes>
         </main>
       </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }
