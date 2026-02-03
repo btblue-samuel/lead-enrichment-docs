@@ -556,7 +556,7 @@ field_key = "contact_C40CB3B4-F8DA-4A92-8F96-93F27DA1516F"`}
           <p>Busca negócio pelo número CNJ.</p>
 
           <h4>Filtro OData</h4>
-          <CodeBlock code={`$filter = f"Title eq '{cnj}'"`} />
+          <CodeBlock code={`$filter = f"OtherProperties/any(p: p/FieldKey eq 'deal_20E8290A-809B-4CF1-9345-6B264AED7830' and p/StringValue eq '{cnj}')"`} />
           <p>
             <strong>Endpoint:</strong>{" "}
             <code className="code-block">GET /Deals</code> com filtro

@@ -10,6 +10,7 @@ export { default as LemitClientPage } from './LemitClientPage';
 export { default as LemitProcessorPage } from './LemitProcessorPage';
 export { default as PloomesAPIPage } from './PloomesAPIPage';
 export { default as PloomesClientPage } from './PloomesClientPage';
+export { default as ProcessingPage } from './ProcessingPage';
 export { default as ResultExporterPage } from './ResultExporterPage';
 export { default as RowBuilderPage } from './RowBuilderPage';
 export { default as TabularIOPage } from './TabularIOPage';

@@ -156,6 +156,7 @@
 .search-result-item {
   display: flex;
   align-items: center;
+  gap: 6px;
   padding: 10px 12px;
   font-size: 0.8rem;
   color: var(--text-secondary);
@@ -164,6 +165,7 @@
   transition: all 0.1s ease;
   cursor: pointer;
   user-select: none;
+  overflow: hidden;
 }
 
 .search-result-item:hover {
@@ -179,16 +181,25 @@
 .search-result-item .result-page {
   font-weight: 600;
   color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .search-result-item .result-function {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.7rem;
   color: var(--text-muted);
-  margin-left: 6px;
   padding: 2px 6px;
   background: var(--bg-tertiary);
   border-radius: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .search-result-item:hover .result-function {
@@ -207,12 +218,16 @@
 .sidebar-nav {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 16px 12px;
+  width: 100%;
 }
 
 /* Category Groups */
 .nav-category {
   margin-bottom: 16px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .nav-category-title {
@@ -229,6 +244,8 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 /* ==========================================
@@ -237,6 +254,8 @@
 
 .nav-item {
   margin-bottom: 2px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .nav-item-link {
@@ -251,6 +270,8 @@
   font-size: 0.875rem;
   font-weight: 500;
   position: relative;
+  overflow: hidden;
+  min-width: 0;
 }
 
 .nav-item-link:hover {
@@ -326,6 +347,7 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s cubic-bezier(0, 0.6, 0.4, 1);
+  width: 100%;
 }
 
 .nav-functions.open {
@@ -337,6 +359,8 @@
 
 .nav-functions li {
   margin: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 /* Function Links - Tree Style */
@@ -351,6 +375,10 @@
   position: relative;
   border-radius: 4px;
   margin: 0 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: calc(100% - 8px);
 }
 
 /* Vertical tree line */

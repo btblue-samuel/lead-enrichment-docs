@@ -5,28 +5,48 @@ function RowBuilderPage() {
     <div className="doc-page">
       <h1>Classe: RowBuilder</h1>
       <p className="doc-subtitle">
-        Construção de linhas de saída para planilhas no formato padronizado do Ploomes CRM.
+        Construção de linhas de saída para planilhas no formato padronizado do
+        Ploomes CRM.
       </p>
 
       <section className="doc-section">
         <h2>Visão Geral</h2>
         <p>
-          A classe <code className="code-block">RowBuilder</code> é responsável por construir linhas de saída 
-          para planilhas no formato padronizado do Ploomes CRM. Ela combina dados de múltiplas fontes (LEMIT, Ploomes, 
+          A classe <code className="code-block">RowBuilder</code> é responsável
+          por construir linhas de saída para planilhas no formato padronizado do
+          Ploomes CRM. Ela combina dados de múltiplas fontes (LEMIT, Ploomes,
           entrada do usuário) e gera linhas formatadas prontas para exportação.
         </p>
 
         <h3>Responsabilidades</h3>
         <table className="params-table">
           <thead>
-            <tr><th>Responsabilidade</th><th>Descrição</th></tr>
+            <tr>
+              <th>Responsabilidade</th>
+              <th>Descrição</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>Formatação</td><td>Padroniza formato de saída para Ploomes</td></tr>
-            <tr><td>Headers Dinâmicos</td><td>Gera headers baseado no número de marcadores</td></tr>
-            <tr><td>Normalização</td><td>Normaliza nomes de escritórios e CPFs</td></tr>
-            <tr><td>Agregação de Tags</td><td>Combina marcadores de múltiplas fontes</td></tr>
-            <tr><td>Validação</td><td>Formata CPFs de forma segura</td></tr>
+            <tr>
+              <td>Formatação</td>
+              <td>Padroniza formato de saída para Ploomes</td>
+            </tr>
+            <tr>
+              <td>Headers Dinâmicos</td>
+              <td>Gera headers baseado no número de marcadores</td>
+            </tr>
+            <tr>
+              <td>Normalização</td>
+              <td>Normaliza nomes de escritórios e CPFs</td>
+            </tr>
+            <tr>
+              <td>Agregação de Tags</td>
+              <td>Combina marcadores de múltiplas fontes</td>
+            </tr>
+            <tr>
+              <td>Validação</td>
+              <td>Formata CPFs de forma segura</td>
+            </tr>
           </tbody>
         </table>
 
@@ -61,14 +81,22 @@ from .escritorio_normalizer import EscritorioNormalizer`}
 ]`}
           />
           <p>
-            <strong>Descrição:</strong> Headers base relacionados aos dados de <strong>Negócio</strong> e parte inicial dos dados de <strong>Cliente</strong>.
+            <strong>Descrição:</strong> Headers base relacionados aos dados de{" "}
+            <strong>Negócio</strong> e parte inicial dos dados de{" "}
+            <strong>Cliente</strong>.
           </p>
-          <p><strong>Total de Campos:</strong> 11 campos</p>
-          
+          <p>
+            <strong>Total de Campos:</strong> 11 campos
+          </p>
+
           <h4>Categorias</h4>
           <ul>
-            <li><strong>Negócio (9 campos):</strong> Informações do deal/processo</li>
-            <li><strong>Cliente (2 campos):</strong> Tipo e responsável</li>
+            <li>
+              <strong>Negócio (9 campos):</strong> Informações do deal/processo
+            </li>
+            <li>
+              <strong>Cliente (2 campos):</strong> Tipo e responsável
+            </li>
           </ul>
         </div>
 
@@ -89,15 +117,24 @@ from .escritorio_normalizer import EscritorioNormalizer`}
 ]`}
           />
           <p>
-            <strong>Descrição:</strong> Headers finais relacionados aos dados do <strong>Cliente</strong> (contatos).
+            <strong>Descrição:</strong> Headers finais relacionados aos dados do{" "}
+            <strong>Cliente</strong> (contatos).
           </p>
-          <p><strong>Total de Campos:</strong> 10 campos</p>
-          
+          <p>
+            <strong>Total de Campos:</strong> 10 campos
+          </p>
+
           <h4>Categorias</h4>
           <ul>
-            <li><strong>Identificação (3 campos):</strong> Nome, CPF, Advogado</li>
-            <li><strong>Telefones (4 campos):</strong> Até 4 telefones</li>
-            <li><strong>E-mails (3 campos):</strong> Até 3 e-mails</li>
+            <li>
+              <strong>Identificação (3 campos):</strong> Nome, CPF, Advogado
+            </li>
+            <li>
+              <strong>Telefones (4 campos):</strong> Até 4 telefones
+            </li>
+            <li>
+              <strong>E-mails (3 campos):</strong> Até 3 e-mails
+            </li>
           </ul>
         </div>
 
@@ -147,7 +184,9 @@ from .escritorio_normalizer import EscritorioNormalizer`}
     normalizer: EscritorioNormalizer = None,
 ):`}
           />
-          <p><strong>Descrição:</strong> Inicializa o construtor de linhas.</p>
+          <p>
+            <strong>Descrição:</strong> Inicializa o construtor de linhas.
+          </p>
 
           <h4>Parâmetros</h4>
           <table className="params-table">
@@ -162,13 +201,17 @@ from .escritorio_normalizer import EscritorioNormalizer`}
             <tbody>
               <tr>
                 <td>logger</td>
-                <td><code className="code-block">logging.Logger</code></td>
+                <td>
+                  <code className="code-block">logging.Logger</code>
+                </td>
                 <td>None</td>
                 <td>Logger para mensagens (usa __name__ se None)</td>
               </tr>
               <tr>
                 <td>normalizer</td>
-                <td><code className="code-block">EscritorioNormalizer</code></td>
+                <td>
+                  <code className="code-block">EscritorioNormalizer</code>
+                </td>
                 <td>None</td>
                 <td>Normalizador de nomes de escritórios</td>
               </tr>
@@ -193,7 +236,10 @@ builder = RowBuilder(logger=my_logger, normalizer=normalizer)`}
           <CodeBlock
             code={`def get_output_headers(self, num_marcadores: int = 1) -> List[str]:`}
           />
-          <p><strong>Descrição:</strong> Gera lista de headers dinâmica baseado no número de marcadores.</p>
+          <p>
+            <strong>Descrição:</strong> Gera lista de headers dinâmica baseado
+            no número de marcadores.
+          </p>
 
           <h4>Parâmetros</h4>
           <table className="params-table">
@@ -208,7 +254,9 @@ builder = RowBuilder(logger=my_logger, normalizer=normalizer)`}
             <tbody>
               <tr>
                 <td>num_marcadores</td>
-                <td><code className="code-block">int</code></td>
+                <td>
+                  <code className="code-block">int</code>
+                </td>
                 <td>1</td>
                 <td>Número total de campos de marcadores necessários</td>
               </tr>
@@ -216,13 +264,22 @@ builder = RowBuilder(logger=my_logger, normalizer=normalizer)`}
           </table>
 
           <h4>Retorno</h4>
-          <p><code className="code-block">List[str]</code> - Lista de headers com campos de marcadores expandidos.</p>
+          <p>
+            <code className="code-block">List[str]</code> - Lista de headers com
+            campos de marcadores expandidos.
+          </p>
 
           <h4>Lógica</h4>
           <ol>
             <li>Se num_marcadores &gt;= 1: adiciona campo "Marcadores"</li>
-            <li>Para cada marcador adicional (2 até N): adiciona "Marcadores&#123;i&#125;"</li>
-            <li>Retorna: OUTPUT_HEADERS_BASE + marcadores_headers + OUTPUT_HEADERS_FINAL</li>
+            <li>
+              Para cada marcador adicional (2 até N): adiciona
+              "Marcadores&#123;i&#125;"
+            </li>
+            <li>
+              Retorna: OUTPUT_HEADERS_BASE + marcadores_headers +
+              OUTPUT_HEADERS_FINAL
+            </li>
           </ol>
 
           <h4>Estrutura de Saída</h4>
@@ -294,7 +351,10 @@ headers = builder.get_output_headers(3)
     row_marcadores: List[str] = None,
 ) -> Dict[str, Any]:`}
           />
-          <p><strong>Descrição:</strong> Cria a linha padrão seguindo OUTPUT_HEADERS e preenchendo faltas com strings vazias.</p>
+          <p>
+            <strong>Descrição:</strong> Cria a linha padrão seguindo
+            OUTPUT_HEADERS e preenchendo faltas com strings vazias.
+          </p>
 
           <h4>Parâmetros</h4>
           <table className="params-table">
@@ -309,49 +369,65 @@ headers = builder.get_output_headers(3)
             <tbody>
               <tr>
                 <td>ctx</td>
-                <td><code className="code-block">Dict[str, Any]</code></td>
+                <td>
+                  <code className="code-block">Dict[str, Any]</code>
+                </td>
                 <td>-</td>
                 <td>Contexto da linha com dados extraídos</td>
               </tr>
               <tr>
                 <td>output_preset</td>
-                <td><code className="code-block">Dict[str, Any]</code></td>
+                <td>
+                  <code className="code-block">Dict[str, Any]</code>
+                </td>
                 <td>-</td>
                 <td>Preset de saída com valores padrão</td>
               </tr>
               <tr>
                 <td>cpf</td>
-                <td><code className="code-block">str</code></td>
+                <td>
+                  <code className="code-block">str</code>
+                </td>
                 <td>-</td>
                 <td>CPF formatado</td>
               </tr>
               <tr>
                 <td>telefones</td>
-                <td><code className="code-block">List[str]</code></td>
+                <td>
+                  <code className="code-block">List[str]</code>
+                </td>
                 <td>-</td>
                 <td>Lista de telefones (até 4)</td>
               </tr>
               <tr>
                 <td>emails</td>
-                <td><code className="code-block">List[str]</code></td>
+                <td>
+                  <code className="code-block">List[str]</code>
+                </td>
                 <td>-</td>
                 <td>Lista de emails (até 3)</td>
               </tr>
               <tr>
                 <td>tags</td>
-                <td><code className="code-block">List[str]</code></td>
+                <td>
+                  <code className="code-block">List[str]</code>
+                </td>
                 <td>None</td>
                 <td>Tags da CLI a serem adicionadas</td>
               </tr>
               <tr>
                 <td>headers</td>
-                <td><code className="code-block">List[str]</code></td>
+                <td>
+                  <code className="code-block">List[str]</code>
+                </td>
                 <td>None</td>
                 <td>Headers de saída (calcula automaticamente se None)</td>
               </tr>
               <tr>
                 <td>row_marcadores</td>
-                <td><code className="code-block">List[str]</code></td>
+                <td>
+                  <code className="code-block">List[str]</code>
+                </td>
                 <td>None</td>
                 <td>Marcadores específicos da linha (da planilha)</td>
               </tr>
@@ -359,7 +435,10 @@ headers = builder.get_output_headers(3)
           </table>
 
           <h4>Retorno</h4>
-          <p><code className="code-block">Dict[str, Any]</code> - Dicionário com a linha formatada pronta para exportação.</p>
+          <p>
+            <code className="code-block">Dict[str, Any]</code> - Dicionário com
+            a linha formatada pronta para exportação.
+          </p>
 
           <h4>Estrutura do Parâmetro ctx</h4>
           <CodeBlock
@@ -478,13 +557,24 @@ linha = builder.build_linha(
 
         <div className="method-block">
           <h3 id="_normalize_escritorio">_normalize_escritorio</h3>
-          <CodeBlock code={`def _normalize_escritorio(self, name: str) -> str:`} />
-          <p><strong>Descrição:</strong> Normaliza nome do escritório se normalizer estiver configurado.</p>
+          <CodeBlock
+            code={`def _normalize_escritorio(self, name: str) -> str:`}
+          />
+          <p>
+            <strong>Descrição:</strong> Normaliza nome do escritório se
+            normalizer estiver configurado.
+          </p>
 
           <h4>Comportamento</h4>
           <ul>
-            <li><strong>Se self._normalizer está configurado:</strong> Chama normalizer.normalize_for_output(name)</li>
-            <li><strong>Se self._normalizer é None:</strong> Retorna o nome original sem modificações</li>
+            <li>
+              <strong>Se self._normalizer está configurado:</strong> Chama
+              normalizer.normalize_for_output(name)
+            </li>
+            <li>
+              <strong>Se self._normalizer é None:</strong> Retorna o nome
+              original sem modificações
+            </li>
           </ul>
 
           <h4>Exemplo</h4>
@@ -504,7 +594,10 @@ normalized = builder._normalize_escritorio("Silva & Associados Advogados")
         <div className="method-block">
           <h3 id="_format_cpf_safe">_format_cpf_safe</h3>
           <CodeBlock code={`def _format_cpf_safe(self, cpf: str) -> str:`} />
-          <p><strong>Descrição:</strong> Formata CPF de forma segura, tratando erros silenciosamente.</p>
+          <p>
+            <strong>Descrição:</strong> Formata CPF de forma segura, tratando
+            erros silenciosamente.
+          </p>
 
           <h4>Comportamento</h4>
           <CodeBlock
@@ -547,14 +640,25 @@ formatted = builder._format_cpf_safe("")
 
         <div className="method-block">
           <h3 id="_ls">_ls</h3>
-          <CodeBlock code={`def _ls(self, itens: List[Any], idx: int) -> str:`} />
-          <p><strong>Descrição:</strong> Retorna item da lista por índice ou string vazia (list safe accessor).</p>
+          <CodeBlock
+            code={`def _ls(self, itens: List[Any], idx: int) -> str:`}
+          />
+          <p>
+            <strong>Descrição:</strong> Retorna item da lista por índice ou
+            string vazia (list safe accessor).
+          </p>
 
           <h4>Comportamento</h4>
           <ul>
-            <li><strong>Se lista é None ou vazia:</strong> Retorna ""</li>
-            <li><strong>Se índice está fora dos limites:</strong> Retorna ""</li>
-            <li><strong>Se índice é válido:</strong> Retorna itens[idx]</li>
+            <li>
+              <strong>Se lista é None ou vazia:</strong> Retorna ""
+            </li>
+            <li>
+              <strong>Se índice está fora dos limites:</strong> Retorna ""
+            </li>
+            <li>
+              <strong>Se índice é válido:</strong> Retorna itens[idx]
+            </li>
           </ul>
 
           <h4>Exemplo</h4>

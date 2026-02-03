@@ -5,28 +5,49 @@ function ResultExporterPage() {
     <div className="doc-page">
       <h1>Classe: ResultExporter</h1>
       <p className="doc-subtitle">
-        Exporta resultados de processamento para arquivos Excel com múltiplas abas e métricas detalhadas.
+        Exporta resultados de processamento para arquivos Excel com múltiplas
+        abas e métricas detalhadas.
       </p>
 
       <section className="doc-section">
         <h2>Visão Geral</h2>
         <p>
-          O módulo <code className="code-block">ResultExporter</code> é responsável por exportar resultados de processamento 
-          para arquivos Excel com múltiplas abas e métricas detalhadas. Ele consolida informações de escritórios, advogados, 
-          reclamantes e LEMIT em um relatório completo.
+          O módulo <code className="code-block">ResultExporter</code> é
+          responsável por exportar resultados de processamento para arquivos
+          Excel com múltiplas abas e métricas detalhadas. Ele consolida
+          informações de escritórios, advogados, reclamantes e LEMIT em um
+          relatório completo.
         </p>
 
         <h3>Responsabilidades</h3>
         <table className="params-table">
           <thead>
-            <tr><th>Responsabilidade</th><th>Descrição</th></tr>
+            <tr>
+              <th>Responsabilidade</th>
+              <th>Descrição</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>Exportação Excel</td><td>Gera arquivos .xlsx com múltiplas abas</td></tr>
-            <tr><td>Métricas Agregadas</td><td>Calcula estatísticas de processamento</td></tr>
-            <tr><td>Normalização</td><td>Integra log de normalização de escritórios</td></tr>
-            <tr><td>Validação</td><td>Valida dados de entrada antes da exportação</td></tr>
-            <tr><td>Logging</td><td>Registra resumo de operações</td></tr>
+            <tr>
+              <td>Exportação Excel</td>
+              <td>Gera arquivos .xlsx com múltiplas abas</td>
+            </tr>
+            <tr>
+              <td>Métricas Agregadas</td>
+              <td>Calcula estatísticas de processamento</td>
+            </tr>
+            <tr>
+              <td>Normalização</td>
+              <td>Integra log de normalização de escritórios</td>
+            </tr>
+            <tr>
+              <td>Validação</td>
+              <td>Valida dados de entrada antes da exportação</td>
+            </tr>
+            <tr>
+              <td>Logging</td>
+              <td>Registra resumo de operações</td>
+            </tr>
           </tbody>
         </table>
 
@@ -60,7 +81,10 @@ from .tabular_io import TabularIO`}
     "unknown": "Desconhecido",
 }`}
           />
-          <p><strong>Descrição:</strong> Mapeamento de operações em inglês para português para o relatório.</p>
+          <p>
+            <strong>Descrição:</strong> Mapeamento de operações em inglês para
+            português para o relatório.
+          </p>
         </div>
 
         <div className="method-block">
@@ -81,8 +105,12 @@ from .tabular_io import TabularIO`}
     "Motivo do Skip",
 ]`}
           />
-          <p><strong>Descrição:</strong> Headers da aba "Escritório e Advogado".</p>
-          <p><strong>Total:</strong> 12 campos</p>
+          <p>
+            <strong>Descrição:</strong> Headers da aba "Escritório e Advogado".
+          </p>
+          <p>
+            <strong>Total:</strong> 12 campos
+          </p>
         </div>
       </section>
 
@@ -98,22 +126,32 @@ from .tabular_io import TabularIO`}
     normalizer: EscritorioNormalizer = None,
 ):`}
           />
-          <p><strong>Descrição:</strong> Inicializa o exportador de resultados.</p>
+          <p>
+            <strong>Descrição:</strong> Inicializa o exportador de resultados.
+          </p>
 
           <h4>Parâmetros</h4>
           <table className="params-table">
             <thead>
-              <tr><th>Parâmetro</th><th>Tipo</th><th>Descrição</th></tr>
+              <tr>
+                <th>Parâmetro</th>
+                <th>Tipo</th>
+                <th>Descrição</th>
+              </tr>
             </thead>
             <tbody>
               <tr>
                 <td>logger</td>
-                <td><code className="code-block">logging.Logger</code></td>
+                <td>
+                  <code className="code-block">logging.Logger</code>
+                </td>
                 <td>Logger (usa __name__ se None)</td>
               </tr>
               <tr>
                 <td>normalizer</td>
-                <td><code className="code-block">EscritorioNormalizer</code></td>
+                <td>
+                  <code className="code-block">EscritorioNormalizer</code>
+                </td>
                 <td>Normalizador de escritórios (opcional)</td>
               </tr>
             </tbody>
@@ -122,22 +160,32 @@ from .tabular_io import TabularIO`}
           <h4>Atributos Inicializados</h4>
           <table className="params-table">
             <thead>
-              <tr><th>Atributo</th><th>Tipo</th><th>Descrição</th></tr>
+              <tr>
+                <th>Atributo</th>
+                <th>Tipo</th>
+                <th>Descrição</th>
+              </tr>
             </thead>
             <tbody>
               <tr>
                 <td>self.logger</td>
-                <td><code className="code-block">logging.Logger</code></td>
+                <td>
+                  <code className="code-block">logging.Logger</code>
+                </td>
                 <td>Logger configurado</td>
               </tr>
               <tr>
                 <td>self._normalizer</td>
-                <td><code className="code-block">EscritorioNormalizer</code></td>
+                <td>
+                  <code className="code-block">EscritorioNormalizer</code>
+                </td>
                 <td>Normalizador (pode ser None)</td>
               </tr>
               <tr>
                 <td>self._tabular_io</td>
-                <td><code className="code-block">TabularIO</code></td>
+                <td>
+                  <code className="code-block">TabularIO</code>
+                </td>
                 <td>Helper para I/O de arquivos</td>
               </tr>
             </tbody>
@@ -155,35 +203,51 @@ from .tabular_io import TabularIO`}
     lemit_stats: Dict[str, Any] = None,
 ) -> str`}
           />
-          <p><strong>Descrição:</strong> Exporta resultados para arquivo Excel com múltiplas abas.</p>
+          <p>
+            <strong>Descrição:</strong> Exporta resultados para arquivo Excel
+            com múltiplas abas.
+          </p>
 
           <h4>Parâmetros</h4>
           <table className="params-table">
             <thead>
-              <tr><th>Parâmetro</th><th>Tipo</th><th>Padrão</th><th>Descrição</th></tr>
+              <tr>
+                <th>Parâmetro</th>
+                <th>Tipo</th>
+                <th>Padrão</th>
+                <th>Descrição</th>
+              </tr>
             </thead>
             <tbody>
               <tr>
                 <td>results</td>
-                <td><code className="code-block">List[Dict]</code></td>
+                <td>
+                  <code className="code-block">List[Dict]</code>
+                </td>
                 <td>-</td>
                 <td>Lista de resultados do processamento</td>
               </tr>
               <tr>
                 <td>output_path</td>
-                <td><code className="code-block">str</code></td>
+                <td>
+                  <code className="code-block">str</code>
+                </td>
                 <td>None</td>
                 <td>Caminho de saída (gera automático se None)</td>
               </tr>
               <tr>
                 <td>workflow_type</td>
-                <td><code className="code-block">str</code></td>
+                <td>
+                  <code className="code-block">str</code>
+                </td>
                 <td>"advogado_escritorio"</td>
                 <td>Tipo de workflow</td>
               </tr>
               <tr>
                 <td>lemit_stats</td>
-                <td><code className="code-block">Dict</code></td>
+                <td>
+                  <code className="code-block">Dict</code>
+                </td>
                 <td>None</td>
                 <td>Estatísticas LEMIT</td>
               </tr>
@@ -193,11 +257,16 @@ from .tabular_io import TabularIO`}
           <h4>Retorno</h4>
           <table className="params-table">
             <thead>
-              <tr><th>Tipo</th><th>Descrição</th></tr>
+              <tr>
+                <th>Tipo</th>
+                <th>Descrição</th>
+              </tr>
             </thead>
             <tbody>
               <tr>
-                <td><code className="code-block">str</code></td>
+                <td>
+                  <code className="code-block">str</code>
+                </td>
                 <td>Caminho do arquivo Excel gerado</td>
               </tr>
             </tbody>
@@ -205,9 +274,18 @@ from .tabular_io import TabularIO`}
 
           <h4>Exceções</h4>
           <ul>
-            <li><code className="code-block">ValidationError</code> - Se resultados inválidos</li>
-            <li><code className="code-block">FileProcessingError</code> - Se erro na exportação</li>
-            <li><code className="code-block">PermissionError</code> - Se sem permissão para escrever</li>
+            <li>
+              <code className="code-block">ValidationError</code> - Se
+              resultados inválidos
+            </li>
+            <li>
+              <code className="code-block">FileProcessingError</code> - Se erro
+              na exportação
+            </li>
+            <li>
+              <code className="code-block">PermissionError</code> - Se sem
+              permissão para escrever
+            </li>
           </ul>
 
           <h4>Workflow</h4>
@@ -235,16 +313,26 @@ from .tabular_io import TabularIO`}
     lemit_stats: Dict[str, Any]
 ) -> None`}
           />
-          <p><strong>Descrição:</strong> Valida os resultados de entrada.</p>
+          <p>
+            <strong>Descrição:</strong> Valida os resultados de entrada.
+          </p>
 
           <h4>Validações</h4>
           <ul>
-            <li><code className="code-block">results</code> deve ser lista</li>
-            <li>Se <code className="code-block">results</code> vazio, <code className="code-block">lemit_stats</code> deve existir</li>
+            <li>
+              <code className="code-block">results</code> deve ser lista
+            </li>
+            <li>
+              Se <code className="code-block">results</code> vazio,{" "}
+              <code className="code-block">lemit_stats</code> deve existir
+            </li>
           </ul>
 
           <h4>Exceções</h4>
-          <p><code className="code-block">ValidationError</code> se validação falhar</p>
+          <p>
+            <code className="code-block">ValidationError</code> se validação
+            falhar
+          </p>
         </div>
 
         <div className="method-block">
@@ -252,7 +340,9 @@ from .tabular_io import TabularIO`}
           <CodeBlock
             code={`def _prepare_output_path(self, output_path: str) -> str`}
           />
-          <p><strong>Descrição:</strong> Prepara e valida o caminho de saída.</p>
+          <p>
+            <strong>Descrição:</strong> Prepara e valida o caminho de saída.
+          </p>
 
           <h4>Operações</h4>
           <ol>
@@ -263,7 +353,10 @@ from .tabular_io import TabularIO`}
           </ol>
 
           <h4>Retorno</h4>
-          <p><code className="code-block">str</code> - Caminho completo com timestamp</p>
+          <p>
+            <code className="code-block">str</code> - Caminho completo com
+            timestamp
+          </p>
 
           <h4>Exemplo</h4>
           <CodeBlock
@@ -283,13 +376,24 @@ from .tabular_io import TabularIO`}
     results: List[Dict[str, Any]]
 ) -> tuple[List[Dict[str, Any]], List[Dict[str, Any]]]`}
           />
-          <p><strong>Descrição:</strong> Processa resultados e retorna dados e log de normalização.</p>
+          <p>
+            <strong>Descrição:</strong> Processa resultados e retorna dados e
+            log de normalização.
+          </p>
 
           <h4>Retorno</h4>
-          <p><code className="code-block">tuple[List[Dict], List[Dict]]</code></p>
+          <p>
+            <code className="code-block">tuple[List[Dict], List[Dict]]</code>
+          </p>
           <ul>
-            <li><code className="code-block">rows_data</code> - Dados formatados para Excel</li>
-            <li><code className="code-block">normalization_log</code> - Log de normalizações</li>
+            <li>
+              <code className="code-block">rows_data</code> - Dados formatados
+              para Excel
+            </li>
+            <li>
+              <code className="code-block">normalization_log</code> - Log de
+              normalizações
+            </li>
           </ul>
 
           <h4>Comportamento</h4>
@@ -307,13 +411,23 @@ from .tabular_io import TabularIO`}
     result: Dict[str, Any]
 ) -> tuple[Dict[str, Any], Dict[str, Any] | None]`}
           />
-          <p><strong>Descrição:</strong> Processa um único resultado.</p>
+          <p>
+            <strong>Descrição:</strong> Processa um único resultado.
+          </p>
 
           <h4>Retorno</h4>
-          <p><code className="code-block">tuple[Dict, Dict | None]</code></p>
+          <p>
+            <code className="code-block">tuple[Dict, Dict | None]</code>
+          </p>
           <ul>
-            <li><code className="code-block">row</code> - Dicionário com 12 campos (RESULT_HEADERS)</li>
-            <li><code className="code-block">norm_entry</code> - Entrada de log de normalização (ou None)</li>
+            <li>
+              <code className="code-block">row</code> - Dicionário com 12 campos
+              (RESULT_HEADERS)
+            </li>
+            <li>
+              <code className="code-block">norm_entry</code> - Entrada de log de
+              normalização (ou None)
+            </li>
           </ul>
 
           <h4>Processamento</h4>
@@ -330,21 +444,73 @@ from .tabular_io import TabularIO`}
           <h4>Campos Gerados</h4>
           <table className="params-table">
             <thead>
-              <tr><th>Campo</th><th>Fonte</th><th>Transformação</th></tr>
+              <tr>
+                <th>Campo</th>
+                <th>Fonte</th>
+                <th>Transformação</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><td>Escritório</td><td>esc.Nome</td><td>Normalizado</td></tr>
-              <tr><td>Pessoa Física</td><td>esc.Pessoa_Física</td><td>Direto</td></tr>
-              <tr><td>CNPJ</td><td>esc.CNPJ</td><td>Se PJ</td></tr>
-              <tr><td>CPF</td><td>esc.CPF</td><td>Se PF</td></tr>
-              <tr><td>Advogado</td><td>adv.Nome</td><td>Direto</td></tr>
-              <tr><td>OAB</td><td>adv.OAB</td><td>Direto</td></tr>
-              <tr><td>É Sócio</td><td>result.is_socio</td><td>"Sim"/"Não"</td></tr>
-              <tr><td>Sócios</td><td>result.socios</td><td>Join com ";"</td></tr>
-              <tr><td>Operação</td><td>result.operation</td><td>Traduzido PT</td></tr>
-              <tr><td>Status</td><td>result.success</td><td>"Sucesso"/"Falha"</td></tr>
-              <tr><td>Possui Deal B2B</td><td>result.has_b2b_deal</td><td>"Sim"/"Não"</td></tr>
-              <tr><td>Motivo do Skip</td><td>Múltiplas fontes</td><td>Concatenado</td></tr>
+              <tr>
+                <td>Escritório</td>
+                <td>esc.Nome</td>
+                <td>Normalizado</td>
+              </tr>
+              <tr>
+                <td>Pessoa Física</td>
+                <td>esc.Pessoa_Física</td>
+                <td>Direto</td>
+              </tr>
+              <tr>
+                <td>CNPJ</td>
+                <td>esc.CNPJ</td>
+                <td>Se PJ</td>
+              </tr>
+              <tr>
+                <td>CPF</td>
+                <td>esc.CPF</td>
+                <td>Se PF</td>
+              </tr>
+              <tr>
+                <td>Advogado</td>
+                <td>adv.Nome</td>
+                <td>Direto</td>
+              </tr>
+              <tr>
+                <td>OAB</td>
+                <td>adv.OAB</td>
+                <td>Direto</td>
+              </tr>
+              <tr>
+                <td>É Sócio</td>
+                <td>result.is_socio</td>
+                <td>"Sim"/"Não"</td>
+              </tr>
+              <tr>
+                <td>Sócios</td>
+                <td>result.socios</td>
+                <td>Join com ";"</td>
+              </tr>
+              <tr>
+                <td>Operação</td>
+                <td>result.operation</td>
+                <td>Traduzido PT</td>
+              </tr>
+              <tr>
+                <td>Status</td>
+                <td>result.success</td>
+                <td>"Sucesso"/"Falha"</td>
+              </tr>
+              <tr>
+                <td>Possui Deal B2B</td>
+                <td>result.has_b2b_deal</td>
+                <td>"Sim"/"Não"</td>
+              </tr>
+              <tr>
+                <td>Motivo do Skip</td>
+                <td>Múltiplas fontes</td>
+                <td>Concatenado</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -354,14 +520,28 @@ from .tabular_io import TabularIO`}
           <CodeBlock
             code={`def _normalize_name(self, name: str) -> tuple[str, str, float]`}
           />
-          <p><strong>Descrição:</strong> Normaliza nome usando o normalizer se disponível.</p>
+          <p>
+            <strong>Descrição:</strong> Normaliza nome usando o normalizer se
+            disponível.
+          </p>
 
           <h4>Retorno</h4>
-          <p><code className="code-block">tuple[str, str, float]</code></p>
+          <p>
+            <code className="code-block">tuple[str, str, float]</code>
+          </p>
           <ul>
-            <li><code className="code-block">normalized_name</code> - Nome normalizado</li>
-            <li><code className="code-block">status</code> - Status da normalização</li>
-            <li><code className="code-block">score</code> - Score de similaridade (0.0-1.0)</li>
+            <li>
+              <code className="code-block">normalized_name</code> - Nome
+              normalizado
+            </li>
+            <li>
+              <code className="code-block">status</code> - Status da
+              normalização
+            </li>
+            <li>
+              <code className="code-block">score</code> - Score de similaridade
+              (0.0-1.0)
+            </li>
           </ul>
 
           <h4>Status Possíveis</h4>
@@ -378,10 +558,15 @@ from .tabular_io import TabularIO`}
           <CodeBlock
             code={`def _collect_skip_reasons(self, result: Dict[str, Any]) -> str`}
           />
-          <p><strong>Descrição:</strong> Coleta motivos de skip de um resultado.</p>
+          <p>
+            <strong>Descrição:</strong> Coleta motivos de skip de um resultado.
+          </p>
 
           <h4>Retorno</h4>
-          <p><code className="code-block">str</code> - Motivos concatenados por " | " ou string vazia</p>
+          <p>
+            <code className="code-block">str</code> - Motivos concatenados por "
+            | " ou string vazia
+          </p>
 
           <h4>Fontes</h4>
           <ol>
@@ -398,10 +583,10 @@ from .tabular_io import TabularIO`}
 
         <div className="method-block">
           <h3 id="_create_error_row">_create_error_row</h3>
-          <CodeBlock
-            code={`def _create_error_row(self) -> Dict[str, Any]`}
-          />
-          <p><strong>Descrição:</strong> Cria linha de erro padrão.</p>
+          <CodeBlock code={`def _create_error_row(self) -> Dict[str, Any]`} />
+          <p>
+            <strong>Descrição:</strong> Cria linha de erro padrão.
+          </p>
 
           <h4>Retorno</h4>
           <p>Dicionário com todos os campos preenchidos com valores de erro:</p>
@@ -417,10 +602,15 @@ from .tabular_io import TabularIO`}
           <CodeBlock
             code={`def _count_operations(self, results: List[Dict[str, Any]]) -> Dict[str, int]`}
           />
-          <p><strong>Descrição:</strong> Conta operações por tipo.</p>
+          <p>
+            <strong>Descrição:</strong> Conta operações por tipo.
+          </p>
 
           <h4>Retorno</h4>
-          <p><code className="code-block">Dict[str, int]</code> - Contagem de cada operação</p>
+          <p>
+            <code className="code-block">Dict[str, int]</code> - Contagem de
+            cada operação
+          </p>
 
           <h4>Exemplo</h4>
           <CodeBlock
@@ -446,17 +636,31 @@ from .tabular_io import TabularIO`}
     lemit_stats: Dict[str, Any],
 ) -> List[Dict[str, Any]]`}
           />
-          <p><strong>Descrição:</strong> Constrói dados da aba "Reclamantes".</p>
+          <p>
+            <strong>Descrição:</strong> Constrói dados da aba "Reclamantes".
+          </p>
 
           <h4>Retorno</h4>
-          <p><code className="code-block">List[Dict[str, Any]]</code> - Lista de dicionários {`{"Métrica": str, "Valor": Any}`}</p>
+          <p>
+            <code className="code-block">List[Dict[str, Any]]</code> - Lista de
+            dicionários {`{"Métrica": str, "Valor": Any}`}
+          </p>
 
           <h4>Seções</h4>
           <ol>
-            <li><strong>Header:</strong> Timestamp e tipo de workflow</li>
-            <li><strong>Reclamantes:</strong> Estatísticas LEMIT (se disponível)</li>
-            <li><strong>Ploomes:</strong> Estatísticas escritório/advogado (se total &gt; 0)</li>
-            <li><strong>Breakdown:</strong> Operações por tipo</li>
+            <li>
+              <strong>Header:</strong> Timestamp e tipo de workflow
+            </li>
+            <li>
+              <strong>Reclamantes:</strong> Estatísticas LEMIT (se disponível)
+            </li>
+            <li>
+              <strong>Ploomes:</strong> Estatísticas escritório/advogado (se
+              total &gt; 0)
+            </li>
+            <li>
+              <strong>Breakdown:</strong> Operações por tipo
+            </li>
           </ol>
 
           <h4>Estrutura</h4>
@@ -495,23 +699,49 @@ Taxa de Sucesso (%): 90.0
     total: int,
 ) -> None`}
           />
-          <p><strong>Descrição:</strong> Escreve o arquivo Excel com múltiplas abas.</p>
+          <p>
+            <strong>Descrição:</strong> Escreve o arquivo Excel com múltiplas
+            abas.
+          </p>
 
           <h4>Abas Criadas</h4>
           <table className="params-table">
             <thead>
-              <tr><th>#</th><th>Nome</th><th>Condição</th><th>Conteúdo</th></tr>
+              <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Condição</th>
+                <th>Conteúdo</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><td>1</td><td>"Escritório e Advogado"</td><td>Sempre</td><td>Dados de importação ou mensagem</td></tr>
-              <tr><td>2</td><td>"Reclamantes"</td><td>Sempre</td><td>Estatísticas LEMIT e Ploomes</td></tr>
-              <tr><td>3</td><td>"Log de Normalização"</td><td>Se normalizer ativo e log não vazio</td><td>Log de normalizações</td></tr>
+              <tr>
+                <td>1</td>
+                <td>"Escritório e Advogado"</td>
+                <td>Sempre</td>
+                <td>Dados de importação ou mensagem</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>"Reclamantes"</td>
+                <td>Sempre</td>
+                <td>Estatísticas LEMIT e Ploomes</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>"Log de Normalização"</td>
+                <td>Se normalizer ativo e log não vazio</td>
+                <td>Log de normalizações</td>
+              </tr>
             </tbody>
           </table>
 
           <h4>Comportamento Especial</h4>
           <ul>
-            <li>Se total == 0: Aba 1 mostra mensagem "Este workflow não processa escritórios/advogados"</li>
+            <li>
+              Se total == 0: Aba 1 mostra mensagem "Este workflow não processa
+              escritórios/advogados"
+            </li>
             <li>Se normalização ativa mas log vazio: loga informação</li>
           </ul>
         </div>
@@ -527,7 +757,9 @@ Taxa de Sucesso (%): 90.0
     lemit_stats: Dict[str, Any],
 ) -> None`}
           />
-          <p><strong>Descrição:</strong> Loga resumo da exportação.</p>
+          <p>
+            <strong>Descrição:</strong> Loga resumo da exportação.
+          </p>
 
           <h4>Log Gerado</h4>
           <CodeBlock
@@ -589,46 +821,134 @@ Taxa de Sucesso (%): 90.0
         <h3>Aba 1: "Escritório e Advogado"</h3>
         <table className="params-table">
           <thead>
-            <tr><th>Coluna</th><th>Tipo</th><th>Exemplo</th></tr>
+            <tr>
+              <th>Coluna</th>
+              <th>Tipo</th>
+              <th>Exemplo</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>Escritório</td><td>str</td><td>"SILVA & ASSOCIADOS"</td></tr>
-            <tr><td>Pessoa Física</td><td>str</td><td>"Não"</td></tr>
-            <tr><td>CNPJ</td><td>str</td><td>"12.345.678/0001-90"</td></tr>
-            <tr><td>CPF</td><td>str</td><td>""</td></tr>
-            <tr><td>Advogado</td><td>str</td><td>"Dr. João Silva"</td></tr>
-            <tr><td>OAB</td><td>str</td><td>"SP123456"</td></tr>
-            <tr><td>É Sócio</td><td>str</td><td>"Sim"</td></tr>
-            <tr><td>Sócios</td><td>str</td><td>"Dr. João Silva; Dra. Maria Santos"</td></tr>
-            <tr><td>Operação</td><td>str</td><td>"Criado"</td></tr>
-            <tr><td>Status</td><td>str</td><td>"Sucesso"</td></tr>
-            <tr><td>Possui Deal B2B</td><td>str</td><td>"Sim"</td></tr>
-            <tr><td>Motivo do Skip</td><td>str</td><td>""</td></tr>
+            <tr>
+              <td>Escritório</td>
+              <td>str</td>
+              <td>"SILVA & ASSOCIADOS"</td>
+            </tr>
+            <tr>
+              <td>Pessoa Física</td>
+              <td>str</td>
+              <td>"Não"</td>
+            </tr>
+            <tr>
+              <td>CNPJ</td>
+              <td>str</td>
+              <td>"12.345.678/0001-90"</td>
+            </tr>
+            <tr>
+              <td>CPF</td>
+              <td>str</td>
+              <td>""</td>
+            </tr>
+            <tr>
+              <td>Advogado</td>
+              <td>str</td>
+              <td>"Dr. João Silva"</td>
+            </tr>
+            <tr>
+              <td>OAB</td>
+              <td>str</td>
+              <td>"SP123456"</td>
+            </tr>
+            <tr>
+              <td>É Sócio</td>
+              <td>str</td>
+              <td>"Sim"</td>
+            </tr>
+            <tr>
+              <td>Sócios</td>
+              <td>str</td>
+              <td>"Dr. João Silva; Dra. Maria Santos"</td>
+            </tr>
+            <tr>
+              <td>Operação</td>
+              <td>str</td>
+              <td>"Criado"</td>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td>str</td>
+              <td>"Sucesso"</td>
+            </tr>
+            <tr>
+              <td>Possui Deal B2B</td>
+              <td>str</td>
+              <td>"Sim"</td>
+            </tr>
+            <tr>
+              <td>Motivo do Skip</td>
+              <td>str</td>
+              <td>""</td>
+            </tr>
           </tbody>
         </table>
 
         <h3>Aba 2: "Reclamantes"</h3>
         <table className="params-table">
           <thead>
-            <tr><th>Coluna</th><th>Tipo</th><th>Descrição</th></tr>
+            <tr>
+              <th>Coluna</th>
+              <th>Tipo</th>
+              <th>Descrição</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>Métrica</td><td>str</td><td>Nome da métrica</td></tr>
-            <tr><td>Valor</td><td>str/int</td><td>Valor da métrica</td></tr>
+            <tr>
+              <td>Métrica</td>
+              <td>str</td>
+              <td>Nome da métrica</td>
+            </tr>
+            <tr>
+              <td>Valor</td>
+              <td>str/int</td>
+              <td>Valor da métrica</td>
+            </tr>
           </tbody>
         </table>
 
         <h3>Aba 3: "Log de Normalização"</h3>
         <table className="params-table">
           <thead>
-            <tr><th>Coluna</th><th>Tipo</th><th>Exemplo</th></tr>
+            <tr>
+              <th>Coluna</th>
+              <th>Tipo</th>
+              <th>Exemplo</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>Nome Original</td><td>str</td><td>"Silva e Associados Advogados Ltda."</td></tr>
-            <tr><td>Nome Normalizado</td><td>str</td><td>"SILVA & ASSOCIADOS"</td></tr>
-            <tr><td>Score Similaridade</td><td>str</td><td>"95.50%"</td></tr>
-            <tr><td>Status</td><td>str</td><td>"Fuzzy Match (Levenshtein)"</td></tr>
-            <tr><td>Advogado</td><td>str</td><td>"Dr. João Silva"</td></tr>
+            <tr>
+              <td>Nome Original</td>
+              <td>str</td>
+              <td>"Silva e Associados Advogados Ltda."</td>
+            </tr>
+            <tr>
+              <td>Nome Normalizado</td>
+              <td>str</td>
+              <td>"SILVA & ASSOCIADOS"</td>
+            </tr>
+            <tr>
+              <td>Score Similaridade</td>
+              <td>str</td>
+              <td>"95.50%"</td>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td>str</td>
+              <td>"Fuzzy Match (Levenshtein)"</td>
+            </tr>
+            <tr>
+              <td>Advogado</td>
+              <td>str</td>
+              <td>"Dr. João Silva"</td>
+            </tr>
           </tbody>
         </table>
       </section>

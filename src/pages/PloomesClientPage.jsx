@@ -347,7 +347,7 @@ function PloomesClientPage() {
         <h2>Métodos de Processamento Interno</h2>
 
         <div className="method-block">
-          <h3>_process_escritorio</h3>
+          <h3 id="_process_escritorio">_process_escritorio</h3>
           <CodeBlock
             code={`def _process_escritorio(self, escritorio_data: EscritorioData) -> Dict[str, Any]:`}
           />
@@ -382,7 +382,7 @@ function PloomesClientPage() {
         </div>
 
         <div className="method-block">
-          <h3>_process_advogado</h3>
+          <h3 id="_process_advogado">_process_advogado</h3>
           <CodeBlock
             code={`def _process_advogado(
     self, advogado_data: AdvogadoData, company_id: Optional[int]
@@ -505,7 +505,9 @@ result = client.import_to_ploomes()`}
         <h2>Expansão de Resultados</h2>
 
         <div className="method-block">
-          <h3>_expand_results_to_original_rows</h3>
+          <h3 id="_expand_results_to_original_rows">
+            _expand_results_to_original_rows
+          </h3>
           <CodeBlock
             code={`def _expand_results_to_original_rows(
     self, unique_results: List[Dict[str, Any]]
@@ -544,7 +546,7 @@ result = client.import_to_ploomes()`}
         <h2>Métodos de Processamento de Dados</h2>
 
         <div className="method-block">
-          <h3>create_model_from_data</h3>
+          <h3 id="create_model_from_data">create_model_from_data</h3>
           <CodeBlock
             code={`def create_model_from_data(self, file_path: str) -> ProcessingResult:`}
           />
@@ -563,7 +565,7 @@ result = client.import_to_ploomes()`}
         </div>
 
         <div className="method-block">
-          <h3>process_advogados_to_csv</h3>
+          <h3 id="process_advogados_to_csv">process_advogados_to_csv</h3>
           <CodeBlock
             code={`def process_advogados_to_csv(
     self, file_path: str, output_path: str = "output/advogados_escritorios.csv"
@@ -579,7 +581,7 @@ result = client.import_to_ploomes()`}
         </div>
 
         <div className="method-block">
-          <h3>processar_cnjs_excel</h3>
+          <h3 id="processar_cnjs_excel">processar_cnjs_excel</h3>
           <CodeBlock
             code={`def processar_cnjs_excel(
     self, arquivo_excel_entrada: str, arquivo_csv_saida: str
@@ -615,7 +617,7 @@ result = client.import_to_ploomes()`}
         </div>
 
         <div className="method-block">
-          <h3>update_deal</h3>
+          <h3 id="update_deal">update_deal</h3>
           <CodeBlock
             code={`def update_deal(
     self, deal_cnj: str, ploomes_stage: DealService.PloomesStage
@@ -643,7 +645,9 @@ result = client.import_to_ploomes()`}
         </div>
 
         <div className="method-block">
-          <h3>get_stage_id_by_pipeline_and_name</h3>
+          <h3 id="get_stage_id_by_pipeline_and_name">
+            get_stage_id_by_pipeline_and_name
+          </h3>
           <CodeBlock
             code={`def get_stage_id_by_pipeline_and_name(self, pipeline_name: str, stage_name: str):`}
           />
@@ -661,7 +665,7 @@ result = client.import_to_ploomes()`}
         <h2>Métodos Auxiliares</h2>
 
         <div className="method-block">
-          <h3>_load_field_mappings</h3>
+          <h3 id="_load_field_mappings">_load_field_mappings</h3>
           <CodeBlock code={`def _load_field_mappings(self) -> Dict:`} />
           <p>Carrega mapeamentos de campos do arquivo JSON de configuração.</p>
           <p>
@@ -675,7 +679,7 @@ result = client.import_to_ploomes()`}
         </div>
 
         <div className="method-block">
-          <h3>_estatisticas_cna</h3>
+          <h3 id="_estatisticas_cna">_estatisticas_cna</h3>
           <CodeBlock code={`def _estatisticas_cna(self) -> Dict[str, Any]:`} />
           <p>Obtém estatísticas do cliente CNA.</p>
           <p>
@@ -687,7 +691,7 @@ result = client.import_to_ploomes()`}
         </div>
 
         <div className="method-block">
-          <h3>_init_lemit</h3>
+          <h3 id="_init_lemit">_init_lemit</h3>
           <CodeBlock code={`def _init_lemit(self):`} />
           <p>Inicializa cliente LEMIT com tratamento de erros robusto.</p>
           <p>
